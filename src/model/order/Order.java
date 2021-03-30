@@ -95,7 +95,7 @@ public class Order {
         return "Order{" +
                 "id='" + id + '\'' +
                 ", user=" + user +
-                ", driver=" + driver +
+                ", driver=" + "no driver" +
                 ", local=" + local +
                 ", products=" + products +
                 '}';

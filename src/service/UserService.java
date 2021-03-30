@@ -21,9 +21,6 @@ public class UserService extends DefaultService{
             switch (x) {
                 case 1:
                     boolean orderConfirmed = false;
-                    if(orderConfirmed == true){
-                        break;
-                    }
                     System.out.println("Where would you like to order from?");
                     app.showAllCompanies();
                     int xCompany = scanner.nextInt();
@@ -63,15 +60,13 @@ public class UserService extends DefaultService{
                             order.setDriver(driverChosen);
                             System.out.println("Confirm order?");
                             int confirmOrder = scanner.nextInt();
-                            System.out.println("aici");
                             if (confirmOrder == 1) {
-                                System.out.println(app.getDrivers().get(driverChoice).getCurrentDelivery());
                                 app.getDrivers().get(driverChoice).setCurrentDelivery(order);
-                                System.out.println(app.getDrivers().get(driverChoice).getCurrentDelivery());
                                 user.setCurrentOrder(order);
                                 orderConfirmed = true;
                                 System.out.println("Order confirmed. It will be delivered to you ASAP!");
-
+                                System.out.println("Back to main menu");
+                                userMenu(user, app);
                             }
                         }
                         if(orderChoice == 0){
