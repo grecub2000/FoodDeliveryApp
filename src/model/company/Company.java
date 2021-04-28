@@ -1,13 +1,11 @@
 package model.company;
 
-import java.util.ArrayList;
-import java.util.UUID;
-import java.util.List;
+import java.util.*;
 
 public class Company {
-    public final String id = UUID.randomUUID().toString();
+    public String id = UUID.randomUUID().toString();
     public String name;
-    public ArrayList<Local> locals;
+    public List<Local> locals;
 
     public Company(String name) {
         this.name = name;
@@ -26,11 +24,11 @@ public class Company {
         this.name = name;
     }
 
-    public ArrayList<Local> getLocals() {
+    public List<Local> getLocals() {
         return locals;
     }
 
-    public void setLocals(ArrayList<Local> locals) {
+    public void setLocals(List<Local> locals) {
         this.locals = locals;
     }
 

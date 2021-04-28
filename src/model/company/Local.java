@@ -6,10 +6,10 @@ import model.product.Product;
 import java.util.*;
 
 public class Local {
-    private final String id = UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString();
     private String name;
     private String address;
-    private ArrayList<Product> menu;
+    private List<Product> menu;
 
     public Local() {
         menu = new ArrayList<Product>();
@@ -41,11 +41,11 @@ public class Local {
         this.address = address;
     }
 
-    public ArrayList<Product> getMenu() {
+    public List<Product> getMenu() {
         return menu;
     }
 
-    public void setMenu(ArrayList<Product> menu) {
+    public void setMenu(List<Product> menu) {
         this.menu = menu;
     }
 

@@ -1,9 +1,9 @@
 package model.product;
 
-import java.util.UUID;
+import java.util.*;
 
 public class Ingredient {
-    private final String id = UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString();
     private String name;
     private double caloricValue;
 

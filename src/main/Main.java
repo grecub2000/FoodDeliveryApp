@@ -5,16 +5,17 @@ import model.app.*;
 import model.company.*;
 import model.order.*;
 import model.product.*;
-import service.DefaultService;
-import service.UserService;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import service.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        //
-        DefaultService defaultService = new DefaultService();
+
+        DefaultService defaultService = DefaultService.getInstance();
+        UserService userService = UserService.getInstance();
+        DriverService driverService = DriverService.getInstance();
+        AdminService adminService = AdminService.getInstance();
+
         App app = new App();
         User userA = new User("usera", "parola", "User A", "numar", "email@email.com", "adresa");
         User userB = new User("userb", "parola", "User B", "numar", "email@email.com", "adresa");
@@ -39,15 +40,15 @@ public class Main {
         Ingredient water = new Ingredient("Water", 20);
         Ingredient onion = new Ingredient("Onion", 70);
         //adding products
-        ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>();
-        Ingredient[] auxList = new Ingredient[] {tomato, tomato, tomato, onion, water, cucumber, bread, bread};
+        ArrayList<String> ingredientList = new ArrayList<String>();
+        String[] auxList = new String[] {tomato.getName(), tomato.getName(), tomato.getName(), onion.getName(), water.getName(), cucumber.getName(), bread.getName(), bread.getName()};
         ingredientList.addAll(Arrays.asList(auxList));
         Product otcSoup = new Product("Onion, Tomato and Cucumber soup", 10, ingredientList);
         //System.out.println(otcSoup.getTotalCalories()+"\n");
         //otcSoup.showProductRecipee();
         //System.out.println();
         ingredientList.clear();
-        auxList = new Ingredient[] {chicken, chicken, tomato, bread};
+        auxList = new String[] {chicken.getName(), chicken.getName(), tomato.getName(), bread.getName()};
         ingredientList.addAll(Arrays.asList(auxList));
         Product chickenT = new Product("Chicken with roasted tomatoes", 20, ingredientList);
         //chickenT.showProductRecipee();
@@ -73,6 +74,21 @@ public class Main {
         companyB.addLocal(localB1);
         app.addCompany(companyA);
         app.addCompany(companyB);
-        defaultService.startMenu(app);
+//        defaultService.startMenu(app);
+        CSVWriter csvWriter = CSVWriter.getInstance();
+//        csvWriter.write(userA);
+//        csvWriter.write(userB);
+//        csvWriter.write(driverA);
+//        csvWriter.write(driverB);
+//        csvWriter.write(tomato);
+//        csvWriter.write(bread);
+//        csvWriter.write(water);
+//        csvWriter.write(cucumber);
+//        csvWriter.write(chicken);
+//        csvWriter.write(onion);
+//        csvWriter.write(otcSoup);
+//        csvWriter.write(chickenT);
+
+
     }
 }

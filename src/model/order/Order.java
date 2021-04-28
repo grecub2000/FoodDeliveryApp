@@ -5,17 +5,14 @@ import model.account.User;
 import model.company.Local;
 import model.product.Product;
 
-import java.util.ArrayList;
-import java.util.UUID;
-import java.util.List;
-import java.util.Collections;
+import java.util.*;
 
 public class Order {
     private final String id = UUID.randomUUID().toString();
     private User user;
     private Driver driver;
     private Local local;
-    private ArrayList<Product> products;
+    private List<Product> products;
 
     public Order(User user, Local local) {
         this.user = user;
@@ -50,11 +47,11 @@ public class Order {
         this.driver = driver;
     }
 
-    public ArrayList<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 

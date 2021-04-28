@@ -2,8 +2,7 @@ package model.account;
 
 import model.order.Order;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Driver extends User {
     private double[] ratings = new double[100];
@@ -16,6 +15,10 @@ public class Driver extends User {
 
     public Driver(String username, String password, String name, String phoneNumber, String email, String address)  {
         super(username, password, name, phoneNumber, email, address);
+    }
+
+    public Driver(String id, String username, String password, String name, String phoneNumber, String email, String address)  {
+        super(id, username, password, name, phoneNumber, email, address);
     }
 
     public double[] getRatings() {

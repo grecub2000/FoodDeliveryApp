@@ -6,10 +6,23 @@ import model.order.Order;
 import model.product.Product;
 
 import java.sql.SQLOutput;
-import java.util.Scanner;
-import java.util.SortedMap;
+import java.util.*;
 
-public class UserService extends DefaultService{
+public class UserService{
+    private static final UserService instance = new UserService();
+
+    private UserService() {
+
+    }
+
+    public static UserService getInstance(){
+        return instance;
+    }
+
+    private DefaultService defaultService = DefaultService.getInstance();
+    private AuditService audit = AuditService.getInstance();
+
+
     public void userMenu(User user, App app) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -66,6 +79,7 @@ public class UserService extends DefaultService{
                                 orderConfirmed = true;
                                 System.out.println("Order confirmed. It will be delivered to you ASAP!");
                                 System.out.println("Back to main menu");
+                                audit.write(user.getUsername() + " placed an order");
                                 userMenu(user, app);
                             }
                         }
@@ -74,9 +88,10 @@ public class UserService extends DefaultService{
                         }
                     }
                 case 2:
-                    startMenu(app);
+                    audit.write(user.getUsername() + " logged out");
+                    defaultService.startMenu(app);
                 case 0:
-                    break;
+                    System.exit(0);
                 default:
                     System.out.println("Option not available");
 

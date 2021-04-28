@@ -7,10 +7,10 @@ import java.util.*;
 public class App {
     private static App instance = null;
 
-    private ArrayList<Company> companies;
-    private ArrayList<User> users;
-    private ArrayList<Driver> drivers;
-    private ArrayList<Admin> admins;
+    private List<Company> companies;
+    private List<User> users;
+    private List<Driver> drivers;
+    private List<Admin> admins;
 
     public App() {
         companies = new ArrayList<Company>();
@@ -20,42 +20,42 @@ public class App {
         Admin admin = new Admin("admin", "adminpass", "Admin Name", "07namcartela", "email@admin.ro", "admin address" );
     }
 
-    public static App App(){
+    public static App getInstance(){
         if (instance == null){
             instance = new App();
         }
         return instance;
     }
 
-    public ArrayList<Company> getCompanies() {
+    public List<Company> getCompanies() {
         return companies;
     }
 
-    public void setCompanies(ArrayList<Company> companies) {
+    public void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
 
-    public ArrayList<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(ArrayList<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 
-    public ArrayList<Driver> getDrivers() {
+    public List<Driver> getDrivers() {
         return drivers;
     }
 
-    public void setDrivers(ArrayList<Driver> drivers) {
+    public void setDrivers(List<Driver> drivers) {
         this.drivers = drivers;
     }
 
-    public ArrayList<Admin> getAdmins() {
+    public List<Admin> getAdmins() {
         return admins;
     }
 
-    public void setAdmins(ArrayList<Admin> admins) {
+    public void setAdmins(List<Admin> admins) {
         this.admins = admins;
     }
 

@@ -2,11 +2,10 @@ package model.account;
 
 import model.order.Order;
 
-import java.util.ArrayList;
-import java.util.UUID;
+import java.util.*;
 
 public class User {
-    protected final String id = UUID.randomUUID().toString();
+    protected String id = UUID.randomUUID().toString();
     protected String username;
     protected String password;
     protected String name;
@@ -14,7 +13,7 @@ public class User {
     protected String email;
     protected String address;
     protected Order currentOrder;
-    protected ArrayList<Order> orderHistory;
+    protected List<Order> orderHistory;
 
 
     public User(){
@@ -28,7 +27,23 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
+        this.currentOrder = null;
     }
+
+    public User(String id, String username, String password, String name, String phoneNumber, String email, String address)
+    {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.currentOrder = null;
+
+    }
+
+
     public String getId() {
         return id;
     }
@@ -81,11 +96,11 @@ public class User {
         this.currentOrder = currentOrder;
     }
 
-    public ArrayList<Order> getOrderHistory() {
+    public List<Order> getOrderHistory() {
         return orderHistory;
     }
 
-    public void setOrderHistory(ArrayList<Order> orderHistory) {
+    public void setOrderHistory(List<Order> orderHistory) {
         this.orderHistory = orderHistory;
     }
 

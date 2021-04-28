@@ -1,17 +1,21 @@
 package model.product;
 
-import java.util.List;
-import java.util.UUID;
-import java.util.Comparator;
-import java.util.Collections;
+import java.util.*;
 
 public class Product {
-    private final String id = UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString();
     private String name;
     private double price;
-    private List<Ingredient> ingredients;
+    private List<String> ingredients;
 
-    public Product(String name, double price, List<Ingredient> ingredients) {
+    public Product(String name, double price, List<String> ingredients) {
+        this.name = name;
+        this.price = price;
+        this.ingredients = ingredients;
+    }
+
+    public Product(String id, String name, double price, List<String> ingredients) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.ingredients = ingredients;
@@ -36,20 +40,28 @@ public class Product {
         this.price = price;
     }
 
-    public double getTotalCalories() {
-        double sum = 0;
-        for(int i = 0; i < ingredients.size(); i++) {
-            sum = sum + this.ingredients.get(i).getCaloricValue();
-        }
-        return sum;
+    public List<String> getIngredients() {
+        return ingredients;
     }
 
-    public void showProductRecipee() {
-        System.out.println("Ingredients for " + this.getName()+ ":");
-        for(int i = 0; i < ingredients.size(); i++) {
-            System.out.println(ingredients.get(i).getName());
-        }
+    public void setIngredients(List<String> ingredients) {
+        this.ingredients = ingredients;
     }
+
+//    public double getTotalCalories() {
+//        double sum = 0;
+//        for(int i = 0; i < ingredients.size(); i++) {
+//            sum = sum + this.ingredients.get(i).getCaloricValue();
+//        }
+//        return sum;
+//    }
+//
+//    public void showProductRecipee() {
+//        System.out.println("Ingredients for " + this.getName()+ ":");
+//        for(int i = 0; i < ingredients.size(); i++) {
+//            System.out.println(ingredients.get(i).getName());
+//        }
+//    }
 
     @Override
     public String toString() {
