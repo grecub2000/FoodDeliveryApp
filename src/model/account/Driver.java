@@ -5,44 +5,39 @@ import model.order.Order;
 import java.util.*;
 
 public class Driver extends User {
-    private double[] ratings = new double[100];
-    private Order currentDelivery;
-    private ArrayList<Order> deliveryHistory;
+    private String ratings;
+    private String currentDelivery;
 
     public Driver() {
 
     }
 
-    public Driver(String username, String password, String name, String phoneNumber, String email, String address)  {
-        super(username, password, name, phoneNumber, email, address);
-    }
-
-    public Driver(String id, String username, String password, String name, String phoneNumber, String email, String address)  {
-        super(id, username, password, name, phoneNumber, email, address);
-    }
-
-    public double[] getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(double[] ratings) {
+    public Driver(String username, String password, String name, String phoneNumber, String email, String address, String currentOrder, String ratings, String currentDelivery) {
+        super(username, password, name, phoneNumber, email, address, currentOrder);
         this.ratings = ratings;
-    }
-
-    public Order getCurrentDelivery() {
-        return currentDelivery;
-    }
-
-    public void setCurrentDelivery(Order currentDelivery) {
         this.currentDelivery = currentDelivery;
     }
 
-    public ArrayList<Order> getDeliveryHistory() {
-        return deliveryHistory;
+    public Driver(String id, String username, String password, String name, String phoneNumber, String email, String address, String currentOrder, String ratings, String currentDelivery)  {
+        super(id, username, password, name, phoneNumber, email, address, currentOrder);
+        this.ratings = ratings;
+        this.currentDelivery = currentDelivery;
     }
 
-    public void setDeliveryHistory(ArrayList<Order> deliveryHistory) {
-        this.deliveryHistory = deliveryHistory;
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getCurrentDelivery() {
+        return currentDelivery;
+    }
+
+    public void setCurrentDelivery(String currentDelivery) {
+        this.currentDelivery = currentDelivery;
     }
 
     @Override
@@ -57,10 +52,8 @@ public class Driver extends User {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", currentOrder=" + currentOrder +
-                ", orderHistory=" + orderHistory +
-                ", ratings=" + Arrays.toString(ratings) +
+                ", ratings=" + ratings +
                 ", currentDelivery=" + currentDelivery +
-                ", deliveryHistory=" + deliveryHistory +
                 '}';
     }
 }

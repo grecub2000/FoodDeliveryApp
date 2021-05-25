@@ -13,11 +13,12 @@ public class App {
     private List<Admin> admins;
 
     public App() {
-        companies = new ArrayList<Company>();
-        users = new ArrayList<User>();
-        drivers = new ArrayList<Driver>();
-        admins = new ArrayList<Admin>();
-        Admin admin = new Admin("admin", "adminpass", "Admin Name", "07namcartela", "email@admin.ro", "admin address" );
+        this.companies = new ArrayList<Company>();
+        this.users = new ArrayList<User>();
+        this.drivers = new ArrayList<Driver>();
+        this.admins = new ArrayList<Admin>();
+        Admin admin = new Admin("admin", "adminpass", "Admin Name", "07namcartela", "email@admin.ro", "admin address", "order id" );
+        addAdmin(admin);
     }
 
     public static App getInstance(){
@@ -52,6 +53,8 @@ public class App {
     }
 
     public List<Admin> getAdmins() {
+        for (Admin i : admins){
+        }
         return admins;
     }
 
@@ -72,7 +75,8 @@ public class App {
     }
 
 
-    public void addAdmin(Admin admin){ admins.add(admin); }
+    public void addAdmin(Admin admin){
+        admins.add(admin); }
 
     public void showAllCompanies(){
         for(int i = 0; i < companies.size(); i++) {
@@ -81,12 +85,12 @@ public class App {
     }
 
     public void viewAvailableDrivers(){
-        System.out.println("Drivers available:");
         for(int i = 0; i < drivers.size(); i++) {
             if(drivers.get(i).getCurrentDelivery() == null) {
                 System.out.println(i + ". " + drivers.get(i).getName());
             }
         }
     }
+
 
 }

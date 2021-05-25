@@ -71,8 +71,11 @@ public class CSVReader {
                 String password = usInfo.get(4);
                 String phoneNumber = usInfo.get(5);
                 String adress = usInfo.get(6);
+                String currentOrder = usInfo.get(7);
+                String ratings = usInfo.get(8);
+                String currentDelivery = usInfo.get(9);
 
-                Driver driver = new Driver(username, password, name, phoneNumber, email, adress);
+                Driver driver = new Driver(username, password, name, phoneNumber, email, adress, currentOrder, ratings, currentDelivery);
                 app.addDriver(driver);
 
             }
@@ -91,8 +94,8 @@ public class CSVReader {
                 String phoneNumber = usInfo.get(4);
                 String email = usInfo.get(5);
                 String adress = usInfo.get(6);
-
-                User user = new User(id, username, password, name, phoneNumber, email, adress);
+                String currentDelivery = usInfo.get(7);
+                User user = new User(id, username, password, name, phoneNumber, email, adress, currentDelivery);
                 app.addUser(user);
 
             }

@@ -56,12 +56,12 @@ public class Product {
 //        return sum;
 //    }
 //
-//    public void showProductRecipee() {
-//        System.out.println("Ingredients for " + this.getName()+ ":");
-//        for(int i = 0; i < ingredients.size(); i++) {
-//            System.out.println(ingredients.get(i).getName());
-//        }
-//    }
+    public void showProductRecipee() {
+        System.out.println("Ingredients for " + this.getName()+ ":");
+        for(String i : ingredients) {
+            System.out.println(i);
+        }
+    }
 
     @Override
     public String toString() {

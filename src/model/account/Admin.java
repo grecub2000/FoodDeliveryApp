@@ -4,8 +4,8 @@ public class Admin extends User {
     public Admin() {
     }
 
-    public Admin(String username, String password, String name, String phoneNumber, String email, String address)  {
-        super(username, password, name, phoneNumber, email, address);
+    public Admin(String username, String password, String name, String phoneNumber, String email, String address, String currentOrder)  {
+        super(username, password, name, phoneNumber, email, address, currentOrder);
     }
 
     @Override
@@ -18,7 +18,6 @@ public class Admin extends User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", currentOrder=" + currentOrder +
-                ", orderHistory=" + orderHistory +
                 '}';
     }
 }

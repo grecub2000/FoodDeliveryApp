@@ -13,6 +13,12 @@ public class Ingredient {
         this.caloricValue = caloricValue;
     }
 
+    public Ingredient(String id, String name, double caloricValue) {
+        this.id = id;
+        this.name = name;
+        this.caloricValue = caloricValue;
+    }
+
     public String getId() {
         return id;
     }

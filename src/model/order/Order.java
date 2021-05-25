@@ -17,7 +17,7 @@ public class Order {
     public Order(User user, Local local) {
         this.user = user;
         this.local = local;
-        products = new ArrayList<Product>();
+        this.products = new ArrayList<Product>();
     }
 
     public Order(User user, Driver driver, Local local) {

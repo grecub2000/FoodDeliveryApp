@@ -4,12 +4,16 @@ import model.app.App;
 import model.account.*;
 import model.order.Order;
 import model.product.Product;
+import repository.UserRepository;
 
 import java.sql.SQLOutput;
 import java.util.*;
 
 public class UserService{
     private static final UserService instance = new UserService();
+    private UserRepository userRepository = UserRepository.getInstance();
+    private DefaultService defaultService = DefaultService.getInstance();
+    private AuditService audit = AuditService.getInstance();
 
     private UserService() {
 
@@ -19,8 +23,7 @@ public class UserService{
         return instance;
     }
 
-    private DefaultService defaultService = DefaultService.getInstance();
-    private AuditService audit = AuditService.getInstance();
+
 
 
     public void userMenu(User user, App app) {
@@ -74,8 +77,6 @@ public class UserService{
                             System.out.println("Confirm order?");
                             int confirmOrder = scanner.nextInt();
                             if (confirmOrder == 1) {
-                                app.getDrivers().get(driverChoice).setCurrentDelivery(order);
-                                user.setCurrentOrder(order);
                                 orderConfirmed = true;
                                 System.out.println("Order confirmed. It will be delivered to you ASAP!");
                                 System.out.println("Back to main menu");
@@ -88,7 +89,7 @@ public class UserService{
                         }
                     }
                 case 2:
-                    audit.write(user.getUsername() + " logged out");
+                    audit.write(user.getUsername() + " logged out ");
                     defaultService.startMenu(app);
                 case 0:
                     System.exit(0);

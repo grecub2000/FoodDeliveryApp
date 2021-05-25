@@ -12,14 +12,12 @@ public class User {
     protected String phoneNumber;
     protected String email;
     protected String address;
-    protected Order currentOrder;
-    protected List<Order> orderHistory;
-
+    protected String currentOrder;
 
     public User(){
     }
 
-    public User(String username, String password, String name, String phoneNumber, String email, String address)
+    public User(String username, String password, String name, String phoneNumber, String email, String address, String currentOrder)
     {
         this.username = username;
         this.password = password;
@@ -27,10 +25,10 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
-        this.currentOrder = null;
+        this.currentOrder = currentOrder;
     }
 
-    public User(String id, String username, String password, String name, String phoneNumber, String email, String address)
+    public User(String id, String username, String password, String name, String phoneNumber, String email, String address, String currentOrder)
     {
         this.id = id;
         this.username = username;
@@ -39,8 +37,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
-        this.currentOrder = null;
-
+        this.currentOrder = currentOrder;
     }
 
 
@@ -88,20 +85,12 @@ public class User {
         this.email = email;
     }
 
-    public Order getCurrentOrder() {
+    public String getCurrentOrder() {
         return currentOrder;
     }
 
-    public void setCurrentOrder(Order currentOrder) {
+    public void setCurrentOrder(String currentOrder) {
         this.currentOrder = currentOrder;
-    }
-
-    public List<Order> getOrderHistory() {
-        return orderHistory;
-    }
-
-    public void setOrderHistory(List<Order> orderHistory) {
-        this.orderHistory = orderHistory;
     }
 
     public String getAddress() { return address; }
@@ -118,7 +107,6 @@ public class User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", currentOrder=" + currentOrder +
-                ", orderHistory=" + orderHistory +
                 '}';
     }
 }
